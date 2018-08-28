@@ -3,6 +3,8 @@
 -- Date: 2016-08-28 10:27:13
 -- 主界面
 local effects = {
+    "CloudEffect",
+    "FlameEffect",
     "DissolveEffect",
     "SearchLightEffect",
     "TransferEffect",
