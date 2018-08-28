@@ -1,10 +1,6 @@
 --
--- Author: xuewenjie
+-- Author: xianwx
 -- Date: 2016-03-10 13:46:14
---
---
--- Author: xuewenjie
--- Date: 2015-08-26 15:55:34
 --
 local scheduler = require("framework.scheduler")
 
@@ -120,92 +116,6 @@ function addTouchEvent(node,params)
 
 end
 
---params.endCallback
--- notShowPressedAction 是否播放点击按钮效果，默认是开
-function addButtonEvent(button,params,notShowPressedAction)
-    if not button then
-        return
-    end
-
-    button:setPressedActionEnabled(notShowPressedAction == nil and true or notShowPressedAction)
-
-	params=params or {}
-	button:addTouchEventListener(function(btn,eventType)
-        local clipper = btn.touchClipper
-        if clipper and clipper(btn:getTouchBeganPosition()) then
-            return
-        end
-
-		if(eventType == ccui.TouchEventType.ended) then 
-			if params.endCallback then
-				params.endCallback(btn)
-			end
-        elseif eventType == ccui.TouchEventType.began then
-            if params.beginCallback then
-                params.beginCallback(btn)
-            end
-        elseif eventType == ccui.TouchEventType.canceled then
-            if params.cancelCallback then
-                params.cancelCallback(btn)
-            end
-        elseif eventType == ccui.TouchEventType.moved then
-            if params.moveCallback then
-                params.moveCallback(btn)
-            end
-		end
-    end)
-end
-
---params.bg
---params.pre
-function createProgress(params)
-	local probg = display.newSprite(params.bg)
-    local  progress = display.newProgressTimer(params.pre, kCCProgressTimerTypeBar):addTo(probg)
-    progress:setAnchorPoint(cc.p(0, 0.5))
-    progress:setPosition(cc.p(0, probg:getContentSize().height/2))
-    progress:setBarChangeRate(cc.p(1, 0))
-    progress:setMidpoint(cc.p(0, 1))
-    progress:setPercentage(0)
-
-    probg.progress=progress
-    
-    return probg
-end
-
-function setSpriteGray(sp)
-    local filterData = {
-    "CUSTOM",
-    json.encode({frag = "shader/gray.fsh",
-            })
-    }
-
-    local filters, param = unpack(filterData)
-    local newFilter = filter.newFilter(filters, param)
-    sp:setFilter(newFilter)
-end
-
-function setCCSpriteGray(ccSp)
-    local pProgram = cc.GLProgram:create("shader/gray.vsh", "shader/gray.fsh")
-     
-    pProgram:bindAttribLocation(cc.ATTRIBUTE_NAME_POSITION,cc.VERTEX_ATTRIB_POSITION)
-    pProgram:bindAttribLocation(cc.ATTRIBUTE_NAME_COLOR,cc.VERTEX_ATTRIB_COLOR)
-    pProgram:bindAttribLocation(cc.ATTRIBUTE_NAME_TEX_COORD,cc.VERTEX_ATTRIB_FLAG_TEX_COORDS)
-    pProgram:link()
-    pProgram:updateUniforms()
-    ccSp:setGLProgram(pProgram)
-end
-
-function setCCSpriteNormal(ccSp)
-    local pProgram = cc.GLProgram:create("shader/gray.vsh", "shader/normal.fsh")
-     
-    pProgram:bindAttribLocation(cc.ATTRIBUTE_NAME_POSITION,cc.VERTEX_ATTRIB_POSITION)
-    pProgram:bindAttribLocation(cc.ATTRIBUTE_NAME_COLOR,cc.VERTEX_ATTRIB_COLOR)
-    pProgram:bindAttribLocation(cc.ATTRIBUTE_NAME_TEX_COORD,cc.VERTEX_ATTRIB_FLAG_TEX_COORDS)
-    pProgram:link()
-    pProgram:updateUniforms()
-    ccSp:setGLProgram(pProgram)
-end
-
 -- 停止节点及所有子节点动画
 function stopAllNodeActions(parent)
     if checkNodeExist(parent) then
@@ -235,37 +145,6 @@ function safeRemoveNode(node)
         node = nil
         return node
     end
-end
-
--- 创建个按钮使用系统字体
--- @params.normal       普通状态下的图片
--- @params.selected     按下装改的图片
--- @params.disable      未激活状态下的图片
--- @params.size         文本的字体大小
--- @params.outlinesize  描边粗细
-function newButton(str, params)
-    local SYSFONT = "Font/minijiancuyuan.ttf"
-    params.size = params.size or 24
-    params.outlinesize = params.outlinesize or 3
-    local btn = ccui.Button:create(params.normal, params.selected, params.disable):setTitleText(str):setTitleFontSize(params.size)
-    btn:setTitleFontName(SYSFONT)
-    local label = btn:getTitleRenderer()
-    label:enableOutline(cc.c4b(0, 0, 0, 255), params.outlinesize)
-    return btn
-end
-
-
-function getFixScreenH()
-    local a1=display.sizeInPixels.height/720
-    local a2=display.sizeInPixels.width/1280
-    local f
-    if a1<a2 then
-        f=a1
-    else
-        f=a2
-    end
-    local h=(display.sizeInPixels.height/f-720)/2
-    return h
 end
 
 -- @params text         要创建的文字

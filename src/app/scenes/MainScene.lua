@@ -4,12 +4,8 @@ local MainScene = class("MainScene", function()
 end)
 
 function MainScene:ctor()
-    -- local layer = MainLayer.new()
-    -- self:addChild(layer)
-    self.uiLayer=display.newLayer()
-    self.uiLayer:addTo(self,1,0)
-    -- layerLoadControl.uiLayer=self.mainLayer
-    layerLoadControl:firstLayer(self.uiLayer,"MainLayer")
+    local layer = MainLayer.new()
+    self:addChild(layer)
 end
 
 function MainScene:onEnter()

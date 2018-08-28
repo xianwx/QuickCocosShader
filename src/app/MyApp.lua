@@ -3,10 +3,7 @@ require("config")
 require("cocos.init")
 require("framework.init")
 
--- ui module
-local LayerLoadControl = require "app.LayerLoadControl"
-layerLoadControl = LayerLoadControl:instance()
-
+require "app.UiHelper"
 local MyApp = class("MyApp", cc.mvc.AppBase)
 
 function MyApp:ctor()
