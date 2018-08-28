@@ -18,22 +18,22 @@ quick-cocos-community 3.6.1，自己开放了GLProgram的接口，如果不使�
 可以自己新建一个新的项目，然后把这个项目里的res和src拷贝过去，这样你就可以在手机上跑了，我在我自己的苹果手机上跑过，效果还可以的。实现主要看src/app/layer/EffectLayer.lua就可以了，shader的使用全在src/app/effect/里边，shader在src/app/shader/里边。
 
 # 效果图
-![云朵效果](/screenshots/cloud.gif)
+![云朵效果](screenshots/cloud.gif)
 
-![溶解效果](/screenshots/dissolve.gif)
+![溶解效果](screenshots/dissolve.gif)
 
-![火焰效果](/screenshots/flame.gif)
+![火焰效果](screenshots/flame.gif)
 
-![流光效果1](/screenshots/fluxay_1.gif)
+![流光效果1](screenshots/fluxay_1.gif)
 
-![流光效果2](/screenshots/fluxay_2.gif)
+![流光效果2](screenshots/fluxay_2.gif)
 
-![发光圆效果](/screenshots/glow_circle.gif)
+![发光圆效果](screenshots/glow_circle.gif)
 
-![草地效果](/screenshots/grassy.gif)
+![草地效果](screenshots/grassy.gif)
 
-![模拟战争迷雾效果](/screenshots/search_light.gif)
+![模拟战争迷雾效果](screenshots/search_light.gif)
 
-![渐变效果](/screenshots/transfer.gif)
+![渐变效果](screenshots/transfer.gif)
 
-![水波纹效果](/screenshots/water_wave.gif)
+![水波纹效果](screenshots/water_wave.gif)
