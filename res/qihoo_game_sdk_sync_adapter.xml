@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<sync-adapter xmlns:android="http://schemas.android.com/apk/res/android" android:accountType="com.qihoo.pushsdk.accounts" android:allowParallelSyncs="false" android:contentAuthority="3pj.cx.accounts.syncprovider" android:isAlwaysSyncable="true" android:supportsUploading="false" android:userVisible="true" />
