@@ -2,9 +2,8 @@
 shader出处来自九尾狐游戏工作室，他们做了个用cocos creator的版本，地址是：
 ### [github项目地址 传送门](https://github.com/fylz1125/ShaderDemos)
 ### [码云项目地址 传送门](https://gitee.com/darkmoon/ShaderDemos)
-我们公司用的是quick cocos进行开发，我相信很多小团队都是喜欢使用lua开发游戏，简单方便容易上手，热更也不需要头疼，但是quick已经被cocos抛弃，后序更新我都没关注过，基本有bug就自己魔改。现在网上开放的是我魔改过后的一部分内容的版本。
+我们公司用的是quick cocos进行开发，我相信很多小团队都是喜欢使用lua开发游戏，简单方便容易上手，热更也不需要头疼，但是quick已经被cocos抛弃，后序更新我都没关注过，基本有bug就自己魔改。现在我传到网上的quick项目是我魔改过后的一部分内容的版本（地址在下边）。
 但是上面项目是用creator的，对lua开发者不适用，于是我就想到了转移到lua代码。
-
 # 本项目地址
 ### [coding版本 传送门](https://coding.net/u/xianwx/p/ShaderDemo/git)
 ### [github版本 传送门](https://github.com/xianwx/QuickCocosShader)
