@@ -9,6 +9,7 @@ shader出处来自九尾狐游戏工作室，他们做了个用cocos creator的�
 反色shader出自[SHADER简单样例](http://codercdy.com/2015/12/05/shaderjian-dan-yang-li/)
 
 # 本项目地址
+### [码云版本 传送门](https://gitee.com/xianwx/quick_cocos_shader_demo)
 ### [coding版本 传送门](https://coding.net/u/xianwx/p/ShaderDemo/git)
 ### [github版本 传送门](https://github.com/xianwx/QuickCocosShader)
 
